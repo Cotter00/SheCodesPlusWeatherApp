@@ -1,5 +1,5 @@
 body {
-  background-image: url("images/background.jpg");
+  background-image: url("/src/images/background.jpg");
   background-size: contain;
 }
 .card1 {
