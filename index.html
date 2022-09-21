@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="src/styles.css" />
+
+    <title>Weather</title>
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
+  </head>
+
+  <body>
+    <div class="container container1">
+      <div class="card card1 border-dark mb-3">
+        <div class="card-body">
+          <div class="row row-1">
+            <div class="col-md-6 header">
+              <h1 id="mainCity">Provincetown</h1>
+              <h3>Monday, August 1st, 2022</h3>
+              <h4>3:56 pm EST</h4>
+            </div>
+
+            <div class="col-md-4 ms-auto">
+              <form class="search-form" id="search-form" />
+              <div class="input-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="city-input"
+                  placeholder="Enter City"
+                  aria-label="Enter City"
+                  aria-describedby="button-addon2"
+                />
+                <button
+                  class="btn btn-outline-secondary"
+                  type="button submit"
+                  id="button-addon2"
+                >
+                  Search
+                </button>
+              </div>
+              <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button
+                  class="btn btn-outline-secondary"
+                  id="current-location-button"
+                >
+                  📌Current Location
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="row row-cols-2">
+            <div class="card card2 col-5 border-light">
+              <div class="card-body">
+                <div class="col-12">
+                  <div class="container text-center">
+                    <div class="row g-2">
+                      <div class="col-3">
+                        <div
+                          class="p-3 border border-dark bg-light mb-2 border-opacity-75 rounded-start"
+                        >
+                          74°
+                        </div>
+                      </div>
+                      <div class="col-9">
+                        <div
+                          class="p-3 border border-dark bg-light mb-2 border-opacity-75 rounded-end"
+                        >
+                          Tuesday <span class="date">8/2</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="container text-center">
+                    <div class="row g-2">
+                      <div class="col-3">
+                        <div
+                          class="p-3 border border-dark bg-light mb-2 border-opacity-75 rounded-start"
+                        >
+                          76°
+                        </div>
+                      </div>
+                      <div class="col-9">
+                        <div
+                          class="p-3 border border-dark bg-light mb-2 border-opacity-75 rounded-end"
+                        >
+                          Wednesday <span class="date">8/3</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="container text-center">
+                    <div class="row g-2">
+                      <div class="col-3">
+                        <div
+                          class="p-3 border border-dark bg-light mb-2 border-opacity-75 rounded-start"
+                        >
+                          81°
+                        </div>
+                      </div>
+                      <div class="col-9">
+                        <div
+                          class="p-3 border border-dark bg-light mb-2 border-opacity-75 rounded-end"
+                        >
+                          Thursday <span class="date">8/4</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="container text-center">
+                    <div class="row g-2">
+                      <div class="col-3">
+                        <div
+                          class="p-3 border border-dark bg-light mb-2 border-opacity-75 rounded-start"
+                        >
+                          72°
+                        </div>
+                      </div>
+                      <div class="col-9">
+                        <div
+                          class="p-3 border border-dark bg-light mb-2 border-opacity-75 rounded-end"
+                        >
+                          Friday <span class="date">8/5</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="container text-center">
+                    <div class="row g-2">
+                      <div class="col-3">
+                        <div
+                          class="p-3 border border-dark bg-light mb-2 border-opacity-75 rounded-start"
+                        >
+                          70°
+                        </div>
+                      </div>
+                      <div class="col-9">
+                        <div
+                          class="p-3 border border-dark bg-light mb-2 border-opacity-75 rounded-end"
+                        >
+                          Saturday <span class="date">8/6</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="container">
+              <div class="col-6 offset-md-4">
+                <div class="current-temp">
+                  <h5 class="main-temp" id="mainTemp">79°</h5>
+                  <br />
+                  <strong> High: </strong
+                  ><span class="high-temp" id="high-temp"> 80° </span>
+                  <strong> Low: </strong
+                  ><span class="low-temp" id="low-temp"> 72°</span>
+                </div>
+                <div class="humid-precip container text-right offset-md-10">
+                  Humidity: <span id="humidity">79</span>%
+                  <br />
+                  Wind: <span id="wind">8</span>mph
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="signature">
+      <strong>Created by <span class="name">Katelyn Cotter</span> </strong>
+    </div>
+
+    <script src="src/index.js"></script>
+  </body>
+</html>
