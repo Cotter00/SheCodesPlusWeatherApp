@@ -108,3 +108,6 @@ input:checked + .slider:before {
 .name {
   color: rgb(52, 52, 52);
 }
+.weather-description {
+  font-weight: bold;
+}

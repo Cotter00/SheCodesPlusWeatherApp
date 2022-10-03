@@ -64,8 +64,10 @@ searchForms.addEventListener("submit", search);
 //Week 5 HW
 
 function displayWeatherCondition(response) {
+  let iconElement = document.querySelector("#icon");
+
   document.querySelector("#mainCity").innerHTML = response.data.name;
-  document.querySelector("h5").innerHTML = `${Math.round(
+  document.querySelector("#mainTemp").innerHTML = `${Math.round(
     response.data.main.temp
   )}°`;
 
@@ -79,6 +81,13 @@ function displayWeatherCondition(response) {
   document.querySelector("#low-temp").innerHTML = `${Math.round(
     response.data.main.temp_min
   )}°`;
+  document.querySelector("#weatherDescription").innerHTML =
+    response.data.weather[0].description;
+
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 
 function searchCity(city) {
