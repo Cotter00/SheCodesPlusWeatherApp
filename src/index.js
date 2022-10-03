@@ -7,13 +7,13 @@ let days = [
   "Wednesday",
   "Thursday",
   "Friday",
-  "Saturday"
+  "Saturday",
 ];
 
 let timeZone = now.toLocaleTimeString([], {
   hour: "numeric",
   minute: "2-digit",
-  timeZoneName: "short"
+  timeZoneName: "short",
 });
 let day = days[now.getDay()];
 let date = now.getDate();
@@ -30,7 +30,7 @@ let months = [
   "September",
   "October",
   "November",
-  "December"
+  "December",
 ];
 let month = months[now.getMonth()];
 
@@ -44,7 +44,7 @@ function formatTime() {
 }
 function search(event) {
   event.preventDefault();
-  let cityElement = document.querySelector("h1");
+  let cityElement = document.querySelector("#mainCity");
   let cityInput = document.getElementById("city-input");
   return (cityElement.innerHTML = cityInput.value);
 }
@@ -64,7 +64,7 @@ searchForms.addEventListener("submit", search);
 //Week 5 HW
 
 function displayWeatherCondition(response) {
-  document.querySelector("h1").innerHTML = response.data.name;
+  document.querySelector("#mainCity").innerHTML = response.data.name;
   document.querySelector("h5").innerHTML = `${Math.round(
     response.data.main.temp
   )}°`;
