@@ -67,6 +67,8 @@ function displayWeatherCondition(response) {
   let iconElement = document.querySelector("#icon");
 
   fahrenheitTemperature = response.data.main.temp;
+  lowFTemp = response.data.main.temp_min;
+  highFTemp = response.data.main.temp_max;
 
   document.querySelector("#mainCity").innerHTML = response.data.name;
   document.querySelector("#mainTemp").innerHTML = `${Math.round(
@@ -126,20 +128,31 @@ searchCity("Provincetown");
 
 function displayCelciusTemperature(event) {
   event.preventDefault();
-  let temperatureElement = document.querySelector("#temperatureUnit");
+  let temperatureElement = document.querySelector("#mainTemp");
 
   fahrenheitLink.classList.remove("active");
-  celciusLink.classList.add("active");
+  celsiusLink.classList.add("active");
+
   let celciusTemperature = (fahrenheitTemperature - 32) * (5 / 9);
-  temperatureElement.innerHTML = Math.round(celciusTemperature);
+  temperatureElement.innerHTML = `${Math.round(celciusTemperature)}°`;
+
+  let lowTempElements = document.querySelector(`#low-temp`);
+  lowTempElements.innerHTML = `${Math.round((lowFTemp - 32) * (5 / 9))}°`;
+
+  let highTempElements = document.querySelector(`#high-temp`);
+  highTempElements.innerHTML = `${Math.round((highFTemp - 32) * (5 / 9))}°`;
 }
 
 function displayFahrenheitTemperature(event) {
   event.preventDefault();
   fahrenheitLink.classList.add("active");
-  celciusLink.classList.remove("active");
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+  celsiusLink.classList.remove("active");
+  let temperatureElement = document.querySelector(`#mainTemp`);
+  temperatureElement.innerHTML = `${Math.round(fahrenheitTemperature)}°`;
+  let lowTempElement = document.querySelector(`#low-temp`);
+  lowTempElement.innerHTML = `${Math.round(lowFTemp)}°`;
+  let highTempElement = document.querySelector(`#high-temp`);
+  highTempElement.innerHTML = `${Math.round(highFTemp)}°`;
 }
 
 let fahrenheitTemperature = null;
@@ -148,4 +161,4 @@ let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
 let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", displayCelsiusTemperature);
+celsiusLink.addEventListener("click", displayCelciusTemperature);
