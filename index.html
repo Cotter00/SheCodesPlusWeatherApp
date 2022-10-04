@@ -62,6 +62,13 @@
                   📌Current Location
                 </button>
               </div>
+              <div class="units d-grid gap-2 d-md-flex justify-content-md-end">
+                <strong id="temperatureUnit"></strong
+                ><span class="units"
+                  ><a href="#" id="celsius-link">°C</a> |
+                  <a href="#" id="fahrenheit-link" class="active">°F</a></span
+                >
+              </div>
             </div>
           </div>
           <div class="row row-cols-2">
@@ -166,19 +173,21 @@
             <div class="container">
               <div class="col-6 offset-md-4">
                 <div class="current-temp">
-                  <h5><span class="main-temp" id="mainTemp">79°</span></h5>
+                  <h5>
+                    <span class="main-temp" id="mainTemp">°</span>
+                  </h5>
                   <br />
 
                   <strong> High: </strong
-                  ><span class="high-temp" id="high-temp"> 80° </span>
+                  ><span class="high-temp" id="high-temp"> ° </span>
                   <strong> Low: </strong
-                  ><span class="low-temp" id="low-temp"> 72°</span>
+                  ><span class="low-temp" id="low-temp"> °</span>
                 </div>
                 <div class="humid-precip container text-right offset-md-10">
                   <div class="weather-description" id="weatherDescription">
                     Partly Cloudy
                   </div>
-                  Humidity: <span id="humidity">79</span>%
+                  Humidity: <span id="humidity">97</span>%
                   <br />
                   Wind: <span id="wind">8</span>mph
                 </div>
